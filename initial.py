@@ -18,4 +18,4 @@ def play_audio(filename):
     stream.close()
     pa.terminate()
 
-play_audio('./audio/1.wav')
+
