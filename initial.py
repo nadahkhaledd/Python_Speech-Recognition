@@ -6,8 +6,8 @@ def play_audio(filename):
     wf = wave.open(filename, 'rb')
     pa = pyaudio.PyAudio()
     stream = pa.open(
-        format=pa.get_format_from_width (wf.getsampwidth()),
-        channels=wf.getnchannels (),
+        format=pa.get_format_from_width(wf.getsampwidth()),
+        channels=wf.getnchannels(),
         rate=wf.getframerate(),
         output=True
     )
