@@ -15,5 +15,8 @@ class Commander:
             else:
                 self.respond("My name is python commander. How are you?")
 
+        else:
+            f = Fetcher("https://www.google.com/search?q=How%20to%20make%20pie&cad=h#q=" + text)
+
     def respond(self, response):
         say(response)
