@@ -25,4 +25,5 @@ def initSpeech():
 
     print(command)
 
-initSpeech()
+if __name__ == '__main__':
+    initSpeech()
