@@ -1,20 +1,18 @@
 import speech_recognition as sr
 from initial import play_audio
-import subprocess
+from commands import Commander
 
 r = sr.Recognizer()
+cmd = Commander()
 
-def say(text):
-    subprocess.call('PowerShell -Command "Add-Type –AssemblyName System.Speech;'
-                    ' (New-Object System.Speech.Synthesis.SpeechSynthesizer).'
-                    'Speak(\'{}\');"'.format(text), shell=True)
-
+running = True
 def initSpeech():
-    print('listening...')
+    #print('listening...')
     play_audio('./audio/1.wav')
 
     with sr.Microphone() as source:
         #print('say something')
+        print('listening...')
         audio = r.listen(source)
 
     play_audio('./audio/2.wav')
@@ -26,7 +24,11 @@ def initSpeech():
         print('couldn\'t understand.')
 
     print(command)
-    say(str(command))
+    if command == 'quit':
+        running = False
+
+    cmd.discover(command)
 
 if __name__ == '__main__':
-    initSpeech()
+    while running == True:
+        initSpeech()
