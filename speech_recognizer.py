@@ -24,7 +24,8 @@ def initSpeech():
         print('couldn\'t understand.')
 
     print(command)
-    if command == 'quit':
+    if command in ['quit', 'exit']:
+        global running
         running = False
 
     cmd.discover(command)
